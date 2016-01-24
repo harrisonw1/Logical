@@ -136,7 +136,7 @@ class CircleGestureRecognizer: UIGestureRecognizer {
     return percentOverlap
   }
 
-  override func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent!) {
+  override func touchesCancelled(touches: Set<UITouch>, withEvent event: UIEvent) {
     super.touchesCancelled(touches, withEvent: event)
     state = .Cancelled // forward the cancel state
   }

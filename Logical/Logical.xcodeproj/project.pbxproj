@@ -11,6 +11,7 @@
 		4D4841D31C544D28007DEF1B /* GraphView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841CD1C544D20007DEF1B /* GraphView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F77F6C6F1C54A8D9000C4124 /* CircleGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F6C6E1C54A8D9000C4124 /* CircleGestureRecognizer.swift */; };
 		F77F6C711C54A8FD000C4124 /* CircleFit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F6C701C54A8FD000C4124 /* CircleFit.swift */; };
+		F77F6C731C54AF6F000C4124 /* PencilGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F6C721C54AF6F000C4124 /* PencilGestureRecognizer.swift */; };
 		F7B606551C546D75004CC069 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6064D1C546D75004CC069 /* CanvasView.swift */; };
 		F7B606561C546D75004CC069 /* ReticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6064E1C546D75004CC069 /* ReticleView.swift */; };
 		F7B606571C546D75004CC069 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6064F1C546D75004CC069 /* Line.swift */; };
@@ -87,6 +88,7 @@
 		4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GraphView.xcodeproj; path = ../Submodules/GraphView/GraphView/GraphView.xcodeproj; sourceTree = "<group>"; };
 		F77F6C6E1C54A8D9000C4124 /* CircleGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleGestureRecognizer.swift; sourceTree = "<group>"; };
 		F77F6C701C54A8FD000C4124 /* CircleFit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleFit.swift; sourceTree = "<group>"; };
+		F77F6C721C54AF6F000C4124 /* PencilGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PencilGestureRecognizer.swift; sourceTree = "<group>"; };
 		F7B6064D1C546D75004CC069 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		F7B6064E1C546D75004CC069 /* ReticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReticleView.swift; sourceTree = "<group>"; };
 		F7B6064F1C546D75004CC069 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				F77F6C701C54A8FD000C4124 /* CircleFit.swift */,
 				F77F6C6E1C54A8D9000C4124 /* CircleGestureRecognizer.swift */,
+				F77F6C721C54AF6F000C4124 /* PencilGestureRecognizer.swift */,
 				F7C962B71C5413A500C340CF /* AppDelegate.swift */,
 				F7C962B91C5413A500C340CF /* MasterViewController.swift */,
 				F7C962BB1C5413A500C340CF /* DetailViewController.swift */,
@@ -374,6 +377,7 @@
 				F77F6C6F1C54A8D9000C4124 /* CircleGestureRecognizer.swift in Sources */,
 				F7C962B81C5413A500C340CF /* AppDelegate.swift in Sources */,
 				F77F6C711C54A8FD000C4124 /* CircleFit.swift in Sources */,
+				F77F6C731C54AF6F000C4124 /* PencilGestureRecognizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

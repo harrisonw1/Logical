@@ -20,6 +20,7 @@ class DetailViewController: UIViewController {
     
     let size = CGSize(width: 80, height: 80)
     let circleGestureRecognizer = CircleGestureRecognizer()
+    let pencilGestureRecognizer = PencilGestureRecognizer()
     
     var detailItem: AnyObject? {
         didSet {
@@ -102,6 +103,10 @@ class DetailViewController: UIViewController {
         self.circleGestureRecognizer.circleDelegate = self
         self.view.addGestureRecognizer(circleGestureRecognizer)
         
+        self.pencilGestureRecognizer.delegate = self
+        self.pencilGestureRecognizer.pencilDelegate = self
+        self.view.addGestureRecognizer(pencilGestureRecognizer)
+        
         // Do any additional setup after loading the view, typically from a nib.
         //self.configureView()
     }
@@ -121,77 +126,77 @@ class DetailViewController: UIViewController {
         return view
     }()
     
-    // MARK: Touch Handling
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if touches.first?.type == .Stylus{
-            self.canvasView.drawTouches(touches, withEvent: event)
-            
-            if visualizeAzimuth {
-                for touch in touches {
-                    if touch.type == .Stylus {
-                        reticleView.hidden = false
-                        updateReticleViewWithTouch(touch, event: event)
-                    }
-                }
-            }
-        } else {
-            super.touchesBegan(touches, withEvent: event)
-        }
-    }
-    
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if touches.first?.type == .Stylus{
-        canvasView.drawTouches(touches, withEvent: event)
-        
-        if visualizeAzimuth {
-            for touch in touches {
-                if touch.type == .Stylus {
-                    updateReticleViewWithTouch(touch, event: event)
-                    
-                    // Use the last predicted touch to update the reticle.
-                    guard let predictedTouch = event?.predictedTouchesForTouch(touch)?.last else { return }
-                    
-                    updateReticleViewWithTouch(predictedTouch, event: event, isPredicted: true)
-                }
-            }
-            }
-        } else {
-            super.touchesMoved(touches, withEvent: event)
-        }
-    }
-    
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if touches.first?.type == .Stylus{
-            canvasView.drawTouches(touches, withEvent: event)
-            canvasView.endTouches(touches, cancel: false)
-            
-            if visualizeAzimuth {
-                for touch in touches {
-                    if touch.type == .Stylus {
-                        reticleView.hidden = true
-                    }
-                }
-            }
-        }
-        super.touchesEnded(touches, withEvent: event)
-    }
-    
-    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
-        guard let touches = touches else { return }
-        if touches.first?.type == .Stylus {
-            canvasView.endTouches(touches, cancel: true)
-            
-            if visualizeAzimuth {
-                for touch in touches {
-                    if touch.type == .Stylus {
-                        reticleView.hidden = true
-                    }
-                }
-            }
-        }
-        super.touchesCancelled(touches, withEvent: event)
-    }
+//    // MARK: Touch Handling
+//    
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        if touches.first?.type == .Stylus{
+//            self.canvasView.drawTouches(touches, withEvent: event)
+//            
+//            if visualizeAzimuth {
+//                for touch in touches {
+//                    if touch.type == .Stylus {
+//                        reticleView.hidden = false
+//                        updateReticleViewWithTouch(touch, event: event)
+//                    }
+//                }
+//            }
+//        } else {
+//            super.touchesBegan(touches, withEvent: event)
+//        }
+//    }
+//    
+//    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        if touches.first?.type == .Stylus{
+//        canvasView.drawTouches(touches, withEvent: event)
+//        
+//        if visualizeAzimuth {
+//            for touch in touches {
+//                if touch.type == .Stylus {
+//                    updateReticleViewWithTouch(touch, event: event)
+//                    
+//                    // Use the last predicted touch to update the reticle.
+//                    guard let predictedTouch = event?.predictedTouchesForTouch(touch)?.last else { return }
+//                    
+//                    updateReticleViewWithTouch(predictedTouch, event: event, isPredicted: true)
+//                }
+//            }
+//            }
+//        } else {
+//            super.touchesMoved(touches, withEvent: event)
+//        }
+//    }
+//    
+//    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//        if touches.first?.type == .Stylus{
+//            canvasView.drawTouches(touches, withEvent: event)
+//            canvasView.endTouches(touches, cancel: false)
+//            
+//            if visualizeAzimuth {
+//                for touch in touches {
+//                    if touch.type == .Stylus {
+//                        reticleView.hidden = true
+//                    }
+//                }
+//            }
+//        }
+//        super.touchesEnded(touches, withEvent: event)
+//    }
+//    
+//    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+//        guard let touches = touches else { return }
+//        if touches.first?.type == .Stylus {
+//            canvasView.endTouches(touches, cancel: true)
+//            
+//            if visualizeAzimuth {
+//                for touch in touches {
+//                    if touch.type == .Stylus {
+//                        reticleView.hidden = true
+//                    }
+//                }
+//            }
+//        }
+//        super.touchesCancelled(touches, withEvent: event)
+//    }
     
     override func touchesEstimatedPropertiesUpdated(touches: Set<NSObject>) {
         canvasView.updateEstimatedPropertiesForTouches(touches)
@@ -257,10 +262,17 @@ extension DetailViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         if gestureRecognizer == self.circleGestureRecognizer {
             return touch.type == .Stylus
+        } else if gestureRecognizer == self.pencilGestureRecognizer {
+            return touch.type == .Stylus
         } else {
             //everything else
             return touch.type != .Stylus
         }
+    }
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        //TODO: this should depend on if it's a pencil GR or not
+        //ie pencil GR should with other pencil GR, but not with non-pencil GR
+        return true
     }
 }
 
@@ -271,6 +283,18 @@ extension DetailViewController: CircleGestureRecognizerDelegate {
     
     func lineDetected() {
         self.canvasView.clear()
+    }
+}
+
+extension DetailViewController: PencilGestureRecognizerDelegate {
+    func drawTouches(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.canvasView.drawTouches(touches, withEvent: event)
+    }
+    func endTouches(touches: Set<UITouch>, cancel: Bool) {
+        self.canvasView.endTouches(touches, cancel: cancel)
+    }
+    func updateEstimatedPropertiesForTouches(touches: Set<NSObject>) {
+        self.canvasView.updateEstimatedPropertiesForTouches(touches)
     }
 }
 
