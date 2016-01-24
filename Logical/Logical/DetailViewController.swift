@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import GraphView
 
 class DetailViewController: UIViewController {
@@ -19,7 +20,7 @@ class DetailViewController: UIViewController {
     }
     
     let size = CGSize(width: 80, height: 80)
-    let circleGestureRecognizer = CircleGestureRecognizer()
+    var circleGestureRecognizer:CircleGestureRecognizer?
     let pencilGestureRecognizer = PencilGestureRecognizer()
     
     var detailItem: AnyObject? {
@@ -99,9 +100,10 @@ class DetailViewController: UIViewController {
         
         
         //the circle gesture recognizer
-        self.circleGestureRecognizer.delegate = self
-        self.circleGestureRecognizer.circleDelegate = self
-        self.view.addGestureRecognizer(circleGestureRecognizer)
+        self.circleGestureRecognizer = CircleGestureRecognizer(target: self, action: "circled:")
+        self.circleGestureRecognizer!.delegate = self
+        self.circleGestureRecognizer!.circleDelegate = self
+        self.view.addGestureRecognizer(circleGestureRecognizer!)
         
         self.pencilGestureRecognizer.delegate = self
         self.pencilGestureRecognizer.pencilDelegate = self
@@ -255,6 +257,24 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func circled(c: CircleGestureRecognizer) {
+        if c.state == .Ended {
+            //findCircledView(c.fitResult.center)
+            if c.isCircle == true {
+                print("YAY")
+            }
+        }
+        if c.state == .Began {
+            //circlerDrawer.clear()
+            //goToNextTimer?.invalidate()
+        }
+        if c.state == .Changed {
+            //circlerDrawer.updatePath(c.path)
+        }
+        if c.state == .Ended || c.state == .Failed || c.state == .Cancelled {
+            self.canvasView.clear()
+        }
+    }
     
 }
 

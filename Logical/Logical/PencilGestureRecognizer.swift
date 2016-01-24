@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIKit.UIGestureRecognizerSubclass
 
 protocol PencilGestureRecognizerDelegate: class {
     func drawTouches(touches: Set<UITouch>, withEvent event:UIEvent?)

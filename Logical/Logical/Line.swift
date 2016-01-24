@@ -54,7 +54,6 @@ class Line: NSObject {
         }
         
         points.append(point)
-        print("Count of Points: \(points.count)")
         
         let updateRect = updateRectForLinePoint(point, previousPoint: previousPoint)
         
