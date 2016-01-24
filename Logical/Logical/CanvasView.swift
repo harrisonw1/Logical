@@ -1,9 +1,9 @@
 /*
-    Copyright (C) 2015 Apple Inc. All Rights Reserved.
-    See LICENSE.txt for this sample’s licensing information
-    
-    Abstract:
-    The `CanvasView` tracks `UITouch`es and represents them as a series of `Line`s.
+Copyright (C) 2015 Apple Inc. All Rights Reserved.
+See LICENSE.txt for this sample’s licensing information
+
+Abstract:
+The `CanvasView` tracks `UITouch`es and represents them as a series of `Line`s.
 */
 
 import UIKit
@@ -30,28 +30,28 @@ class CanvasView: UIView {
     
     /// Array containing all line objects that need to be drawn in `drawRect(_:)`.
     var lines = [Line]()
-
+    
     /// Array containing all line objects that have been completely drawn into the frozenContext.
     var finishedLines = [Line]()
-
     
-    /** 
-        Holds a map of `UITouch` objects to `Line` objects whose touch has not ended yet.
     
-        Use `NSMapTable` to handle association as `UITouch` doesn't conform to `NSCopying`. There is no value
-        in accessing the properties of the touch used as a key in the map table. `UITouch` properties should
-        be accessed in `NSResponder` callbacks and methods called from them.
-    */
+    /**
+     Holds a map of `UITouch` objects to `Line` objects whose touch has not ended yet.
+     
+     Use `NSMapTable` to handle association as `UITouch` doesn't conform to `NSCopying`. There is no value
+     in accessing the properties of the touch used as a key in the map table. `UITouch` properties should
+     be accessed in `NSResponder` callbacks and methods called from them.
+     */
     let activeLines = NSMapTable.strongToStrongObjectsMapTable()
     
     /**
-        Holds a map of `UITouch` objects to `Line` objects whose touch has ended but still has points awaiting
-        updates.
-        
-        Use `NSMapTable` to handle association as `UITouch` doesn't conform to `NSCopying`. There is no value
-        in accessing the properties of the touch used as a key in the map table. `UITouch` properties should
-        be accessed in `NSResponder` callbacks and methods called from them.
-    */
+     Holds a map of `UITouch` objects to `Line` objects whose touch has ended but still has points awaiting
+     updates.
+     
+     Use `NSMapTable` to handle association as `UITouch` doesn't conform to `NSCopying`. There is no value
+     in accessing the properties of the touch used as a key in the map table. `UITouch` properties should
+     be accessed in `NSResponder` callbacks and methods called from them.
+     */
     let pendingLines = NSMapTable.strongToStrongObjectsMapTable()
     
     /// A `CGContext` for drawing the last representation of lines no longer receiving updates into.
@@ -64,7 +64,7 @@ class CanvasView: UIView {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         
         let context = CGBitmapContextCreate(nil, Int(size.width), Int(size.height), 8, 0, colorSpace, CGImageAlphaInfo.PremultipliedLast.rawValue)
-
+        
         CGContextSetLineCap(context, .Round)
         let transform = CGAffineTransformMakeScale(scale, scale)
         CGContextConcatCTM(context, transform)
@@ -81,7 +81,7 @@ class CanvasView: UIView {
         let context = UIGraphicsGetCurrentContext()!
         
         CGContextSetLineCap(context, .Round)
-
+        
         if (needsFullRedraw) {
             setFrozenImageNeedsUpdate()
             CGContextClearRect(frozenContext, bounds)
@@ -92,7 +92,7 @@ class CanvasView: UIView {
             }
             needsFullRedraw = false
         }
-
+        
         frozenImage = frozenImage ?? CGBitmapContextCreateImage(frozenContext)
         
         if let frozenImage = frozenImage {
@@ -129,25 +129,25 @@ class CanvasView: UIView {
             let line = activeLines.objectForKey(touch) as? Line ?? addActiveLineForTouch(touch)
             
             /*
-                Remove prior predicted points and update the `updateRect` based on the removals. The touches 
-                used to create these points are predictions provided to offer additional data. They are stale 
-                by the time of the next event for this touch.
+            Remove prior predicted points and update the `updateRect` based on the removals. The touches
+            used to create these points are predictions provided to offer additional data. They are stale
+            by the time of the next event for this touch.
             */
             updateRect.unionInPlace(line.removePointsWithType(.Predicted))
             
             /*
-                Incorporate coalesced touch data. The data in the last touch in the returned array will match
-                the data of the touch supplied to `coalescedTouchesForTouch(_:)`
+            Incorporate coalesced touch data. The data in the last touch in the returned array will match
+            the data of the touch supplied to `coalescedTouchesForTouch(_:)`
             */
             let coalescedTouches = event?.coalescedTouchesForTouch(touch) ?? []
             let coalescedRect = addPointsOfType(.Coalesced, forTouches: coalescedTouches, toLine: line, currentUpdateRect: updateRect)
             updateRect.unionInPlace(coalescedRect)
             
             /*
-                Incorporate predicted touch data. This sample draws predicted touches differently; however, 
-                you may want to use them as inputs to smoothing algorithms rather than directly drawing them. 
-                Points derived from predicted touches should be removed from the line at the next event for 
-                this touch.
+            Incorporate predicted touch data. This sample draws predicted touches differently; however,
+            you may want to use them as inputs to smoothing algorithms rather than directly drawing them.
+            Points derived from predicted touches should be removed from the line at the next event for
+            this touch.
             */
             if isPredictionEnabled {
                 let predictedTouches = event?.predictedTouchesForTouch(touch) ?? []
@@ -206,15 +206,14 @@ class CanvasView: UIView {
         for touch in touches {
             // Skip over touches that do not correspond to an active line.
             guard let line = activeLines.objectForKey(touch) as? Line else { continue }
+
             
-            //OUR CODE
-            let points: [CGPoint] = line.points.map{ $0.location }
-            print(points.count)
-            TXShapeRecognizer.sharedInstance().analyze(points.map(NSValue.init), compleleted: {
-                shape, output in
-                line.shapeType  = shape
-                print(shape)
-            })
+            //            print(points.count)
+            //            TXShapeRecognizer.sharedInstance().analyze(points.map(NSValue.init), compleleted: {
+            //                shape, output in
+            //                line.shapeType  = shape
+            //                print(shape)
+            //            })
             
             // If this is a touch cancellation, cancel the associated line.
             if cancel { updateRect.unionInPlace(line.cancel()) }
@@ -223,7 +222,7 @@ class CanvasView: UIView {
             if line.isComplete || !isTouchUpdatingEnabled {
                 finishLine(line)
             }
-            // Otherwise, add the line to our map of touches to lines pending update.
+                // Otherwise, add the line to our map of touches to lines pending update.
             else {
                 pendingLines.setObject(line, forKey: touch)
             }
@@ -233,7 +232,8 @@ class CanvasView: UIView {
         }
         
         setNeedsDisplayInRect(updateRect)
-        setNeedsDisplay()
+        
+        //OUR CODE 2
     }
     
     func updateEstimatedPropertiesForTouches(touches: Set<NSObject>) {
@@ -247,16 +247,16 @@ class CanvasView: UIView {
                 let pendingLine = pendingLines.objectForKey(touch) as? Line
                 isPending = pendingLine != nil
                 return pendingLine
-            }()
+                }()
             
             // If no line is related to the touch, return as there is no additional work to do.
             guard let line = possibleLine else { return }
             
             switch line.updateWithTouch(touch, inView: self) {
-                case (true, let updateRect):
-                    setNeedsDisplayInRect(updateRect)
-                default:
-                    ()
+            case (true, let updateRect):
+                setNeedsDisplayInRect(updateRect)
+            default:
+                ()
             }
             
             // If this update updated the last point requiring an update, move the line to the `frozenImage`.
@@ -264,7 +264,7 @@ class CanvasView: UIView {
                 finishLine(line)
                 pendingLines.removeObjectForKey(touch)
             }
-            // Otherwise, have the line add any points no longer requiring updates to the `frozenImage`.
+                // Otherwise, have the line add any points no longer requiring updates to the `frozenImage`.
             else {
                 commitLine(line)
             }
@@ -287,8 +287,15 @@ class CanvasView: UIView {
         
         // Cease tracking this line now that it is finished.
         lines.removeAtIndex(lines.indexOf(line)!)
-
+        
         // Store into finished lines to allow for a full redraw on option changes.
         finishedLines.append(line)
+    }
+    
+    func distance(p1:CGPoint,p2:CGPoint) -> CGFloat {
+        let xDist = (p2.x - p1.x); //[2]
+        let yDist = (p2.y - p1.y); //[3]
+        let distance = sqrt((xDist * xDist) + (yDist * yDist)); //[4]
+        return distance
     }
 }

@@ -14,8 +14,6 @@ class Line: NSObject {
     // The live line.
     var points = [LinePoint]()
     
-    var shapeType:TXShapeType = TXShapeOther
-    
     // Use the estimation index of the touch to track points awaiting updates.
     var pointsWaitingForUpdatesByEstimationIndex = [NSNumber: LinePoint]()
 
@@ -146,11 +144,7 @@ class Line: NSObject {
                     color = color.colorWithAlphaComponent(0.5)
                 }
             }
-            
-            if self.shapeType == TXShapeTriangle {
-                color = UIColor.redColor()
-                point.force = 2.5
-            }
+        
             
             let location = usePreciseLocation ? point.preciseLocation : point.location
             let priorLocation = usePreciseLocation ? priorPoint.preciseLocation : priorPoint.location

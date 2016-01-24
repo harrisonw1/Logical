@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		4D4841D21C544D28007DEF1B /* GraphView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841CD1C544D20007DEF1B /* GraphView.framework */; };
 		4D4841D31C544D28007DEF1B /* GraphView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841CD1C544D20007DEF1B /* GraphView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F77F6C6F1C54A8D9000C4124 /* CircleGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F6C6E1C54A8D9000C4124 /* CircleGestureRecognizer.swift */; };
+		F77F6C711C54A8FD000C4124 /* CircleFit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F6C701C54A8FD000C4124 /* CircleFit.swift */; };
 		F7B606551C546D75004CC069 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6064D1C546D75004CC069 /* CanvasView.swift */; };
 		F7B606561C546D75004CC069 /* ReticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6064E1C546D75004CC069 /* ReticleView.swift */; };
 		F7B606571C546D75004CC069 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6064F1C546D75004CC069 /* Line.swift */; };
-		F7B606581C546D75004CC069 /* TXMathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B606511C546D75004CC069 /* TXMathHelper.m */; };
-		F7B606591C546D75004CC069 /* TXShapeRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B606531C546D75004CC069 /* TXShapeRecognizer.m */; };
 		F7C962B81C5413A500C340CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C962B71C5413A500C340CF /* AppDelegate.swift */; };
 		F7C962BA1C5413A500C340CF /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C962B91C5413A500C340CF /* MasterViewController.swift */; };
 		F7C962BC1C5413A500C340CF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C962BB1C5413A500C340CF /* DetailViewController.swift */; };
@@ -85,14 +85,11 @@
 
 /* Begin PBXFileReference section */
 		4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GraphView.xcodeproj; path = ../Submodules/GraphView/GraphView/GraphView.xcodeproj; sourceTree = "<group>"; };
+		F77F6C6E1C54A8D9000C4124 /* CircleGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleGestureRecognizer.swift; sourceTree = "<group>"; };
+		F77F6C701C54A8FD000C4124 /* CircleFit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleFit.swift; sourceTree = "<group>"; };
 		F7B6064D1C546D75004CC069 /* CanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		F7B6064E1C546D75004CC069 /* ReticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReticleView.swift; sourceTree = "<group>"; };
 		F7B6064F1C546D75004CC069 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
-		F7B606501C546D75004CC069 /* TXMathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXMathHelper.h; sourceTree = "<group>"; };
-		F7B606511C546D75004CC069 /* TXMathHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXMathHelper.m; sourceTree = "<group>"; };
-		F7B606521C546D75004CC069 /* TXShapeRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXShapeRecognizer.h; sourceTree = "<group>"; };
-		F7B606531C546D75004CC069 /* TXShapeRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXShapeRecognizer.m; sourceTree = "<group>"; };
-		F7B606541C546D75004CC069 /* TouchCanvas-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TouchCanvas-Bridging-Header.h"; sourceTree = "<group>"; };
 		F7C962B41C5413A500C340CF /* Logical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C962B71C5413A500C340CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C962B91C5413A500C340CF /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +166,8 @@
 		F7C962B61C5413A500C340CF /* Logical */ = {
 			isa = PBXGroup;
 			children = (
+				F77F6C701C54A8FD000C4124 /* CircleFit.swift */,
+				F77F6C6E1C54A8D9000C4124 /* CircleGestureRecognizer.swift */,
 				F7C962B71C5413A500C340CF /* AppDelegate.swift */,
 				F7C962B91C5413A500C340CF /* MasterViewController.swift */,
 				F7C962BB1C5413A500C340CF /* DetailViewController.swift */,
@@ -179,11 +178,6 @@
 				F7B6064D1C546D75004CC069 /* CanvasView.swift */,
 				F7B6064E1C546D75004CC069 /* ReticleView.swift */,
 				F7B6064F1C546D75004CC069 /* Line.swift */,
-				F7B606501C546D75004CC069 /* TXMathHelper.h */,
-				F7B606511C546D75004CC069 /* TXMathHelper.m */,
-				F7B606521C546D75004CC069 /* TXShapeRecognizer.h */,
-				F7B606531C546D75004CC069 /* TXShapeRecognizer.m */,
-				F7B606541C546D75004CC069 /* TouchCanvas-Bridging-Header.h */,
 			);
 			path = Logical;
 			sourceTree = "<group>";
@@ -375,11 +369,11 @@
 				F7C962BC1C5413A500C340CF /* DetailViewController.swift in Sources */,
 				F7B606561C546D75004CC069 /* ReticleView.swift in Sources */,
 				F7C962BA1C5413A500C340CF /* MasterViewController.swift in Sources */,
-				F7B606591C546D75004CC069 /* TXShapeRecognizer.m in Sources */,
 				F7B606571C546D75004CC069 /* Line.swift in Sources */,
 				F7B606551C546D75004CC069 /* CanvasView.swift in Sources */,
+				F77F6C6F1C54A8D9000C4124 /* CircleGestureRecognizer.swift in Sources */,
 				F7C962B81C5413A500C340CF /* AppDelegate.swift in Sources */,
-				F7B606581C546D75004CC069 /* TXMathHelper.m in Sources */,
+				F77F6C711C54A8FD000C4124 /* CircleFit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,7 +528,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ethansinjin.Logical;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Logical/TouchCanvas-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -551,7 +545,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ethansinjin.Logical;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Logical/TouchCanvas-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;

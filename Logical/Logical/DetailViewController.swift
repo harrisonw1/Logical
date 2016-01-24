@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     }
     
     let size = CGSize(width: 80, height: 80)
-    
+    let circleGestureRecognizer = CircleGestureRecognizer()
     
     var detailItem: AnyObject? {
         didSet {
@@ -79,6 +79,7 @@ class DetailViewController: UIViewController {
         //self.view.backgroundColor = UIColor.darkTextColor()
         self.graphView.frame = self.view.frame
         self.graphView.panGestureRecognizer.delegate = self
+        
         self.view.addSubview(self.graphView)
         self.graphView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor)
         self.graphView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor)
@@ -94,6 +95,12 @@ class DetailViewController: UIViewController {
         self.canvasView.userInteractionEnabled = false
         self.view.addSubview(canvasView)
         canvasView.addSubview(reticleView)
+        
+        
+        //the circle gesture recognizer
+        self.circleGestureRecognizer.delegate = self
+        self.circleGestureRecognizer.circleDelegate = self
+        self.view.addGestureRecognizer(circleGestureRecognizer)
         
         // Do any additional setup after loading the view, typically from a nib.
         //self.configureView()
@@ -248,7 +255,22 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-        return touch.type != .Stylus
+        if gestureRecognizer == self.circleGestureRecognizer {
+            return touch.type == .Stylus
+        } else {
+            //everything else
+            return touch.type != .Stylus
+        }
+    }
+}
+
+extension DetailViewController: CircleGestureRecognizerDelegate {
+    func circleDetected() {
+        self.canvasView.clear()
+    }
+    
+    func lineDetected() {
+        self.canvasView.clear()
     }
 }
 
