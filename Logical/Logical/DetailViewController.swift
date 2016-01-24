@@ -288,7 +288,7 @@ class DetailViewController: UIViewController {
         newView.frame.origin.y = fit.center.y - fit.radius
         newView.backgroundColor = UIColor.purpleColor()
         self.graphView.graph.addNode(newView)
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.05, initialSpringVelocity: 0.1, options: [], animations: {
+        UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.05, initialSpringVelocity: 0.1, options: [], animations: {
             newView.frame.size = CGSize(width: 80, height: 80)
             newView.alpha = 1.0
             }, completion: {
