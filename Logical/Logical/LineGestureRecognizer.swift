@@ -11,9 +11,6 @@ import UIKit
 class LineGestureRecognizer: UIGestureRecognizer {
 
     private var touchedPoints = [CGPoint]() // point history
-    var fitResult = CircleResult() // information about how circle-like is the path
-    var tolerance: CGFloat = 0.2 // circle wiggle room
-    var isCircle = false
     var path = CGPathCreateMutable() // running CGPath - helps with drawing
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent) {
@@ -33,7 +30,7 @@ class LineGestureRecognizer: UIGestureRecognizer {
         super.touchesEnded(touches, withEvent: event)
         
         // now that the user has stopped touching, figure out if the path was a circle
-        fitResult = fitCircle(touchedPoints)
+        //fitResult = fitCircle(touchedPoints)
         
         // make sure there are no points in the middle of the circle
 //        let hasInside = anyPointsInTheMiddle()
@@ -41,10 +38,10 @@ class LineGestureRecognizer: UIGestureRecognizer {
 //        let percentOverlap = calculateBoundingOverlap()
         //isCircle = fitResult.error <= tolerance && !hasInside && percentOverlap > (1-tolerance)
         
-        state = isCircle ? .Ended : .Failed
+        state = .Ended
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent!) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent) {
         super.touchesMoved(touches, withEvent: event)
         
         // 1
@@ -67,7 +64,7 @@ class LineGestureRecognizer: UIGestureRecognizer {
         super.reset()
         touchedPoints.removeAll(keepCapacity: true)
         path = CGPathCreateMutable()
-        isCircle = false
+  //      isCircle = false
         state = .Possible
     }
 

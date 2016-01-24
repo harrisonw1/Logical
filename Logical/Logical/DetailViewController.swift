@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     
     let size = CGSize(width: 80, height: 80)
     var circleGestureRecognizer:CircleGestureRecognizer?
+    var lineGestureRecognizer:LineGestureRecognizer?
     let pencilGestureRecognizer = PencilGestureRecognizer()
     
     var detailItem: AnyObject? {
@@ -102,8 +103,12 @@ class DetailViewController: UIViewController {
         
         //the circle gesture recognizer
         self.circleGestureRecognizer = CircleGestureRecognizer(target: self, action: "circled:")
-        self.circleGestureRecognizer!.delegate = self
+        self.circleGestureRecognizer?.delegate = self
         self.view.addGestureRecognizer(circleGestureRecognizer!)
+        
+        self.lineGestureRecognizer = LineGestureRecognizer(target: self, action: "line:")
+        self.lineGestureRecognizer?.delegate = self
+        self.view.addGestureRecognizer(lineGestureRecognizer!)
         
         self.pencilGestureRecognizer.delegate = self
         self.pencilGestureRecognizer.pencilDelegate = self
@@ -280,6 +285,15 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func line(l: LineGestureRecognizer) {
+        if l.state == .Ended {
+            //try to find nodes under the start and end points on the line
+            for node in self.graphView.graph.nodes {
+            
+            }
+        }
+    }
+    
     func createNewNode(fit:CircleResult){
         let newView = RoundedView()
         let coord = self.canvasView.convertPoint(CGPointMake((fit.center.x - fit.radius), (fit.center.y - fit.radius)), fromView: newView)
@@ -313,6 +327,8 @@ extension DetailViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         if gestureRecognizer == self.circleGestureRecognizer {
             return touch.type == .Stylus
+        } else if gestureRecognizer == self.lineGestureRecognizer {
+            return touch.type == .Stylus
         } else if gestureRecognizer == self.pencilGestureRecognizer {
             return touch.type == .Stylus
         } else {
@@ -324,6 +340,12 @@ extension DetailViewController: UIGestureRecognizerDelegate {
         //TODO: this should depend on if it's a pencil GR or not
         //ie pencil GR should with other pencil GR, but not with non-pencil GR
         return true
+    }
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOfGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == self.lineGestureRecognizer && otherGestureRecognizer == self.circleGestureRecognizer {
+            return true
+        }
+        return false
     }
 }
 

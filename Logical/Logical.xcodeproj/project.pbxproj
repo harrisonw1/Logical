@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		4D4841D21C544D28007DEF1B /* GraphView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841CD1C544D20007DEF1B /* GraphView.framework */; };
 		4D4841D31C544D28007DEF1B /* GraphView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841CD1C544D20007DEF1B /* GraphView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4D4841E61C54EE76007DEF1B /* Axiomatic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841E11C54EE70007DEF1B /* Axiomatic.framework */; };
-		4D4841E71C54EE76007DEF1B /* Axiomatic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841E11C54EE70007DEF1B /* Axiomatic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F77F6C6F1C54A8D9000C4124 /* CircleGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F6C6E1C54A8D9000C4124 /* CircleGestureRecognizer.swift */; };
 		F77F6C711C54A8FD000C4124 /* CircleFit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F6C701C54A8FD000C4124 /* CircleFit.swift */; };
 		F77F6C731C54AF6F000C4124 /* PencilGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F6C721C54AF6F000C4124 /* PencilGestureRecognizer.swift */; };
@@ -71,13 +69,6 @@
 			remoteGlobalIDString = 4DC710501C4D061D00834A0E;
 			remoteInfo = AxiomaticTests;
 		};
-		4D4841E81C54EE76007DEF1B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4D4841DA1C54EE6F007DEF1B /* Axiomatic.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 4DC710451C4D061D00834A0E;
-			remoteInfo = Axiomatic;
-		};
 		F7C962CB1C5413A500C340CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F7C962AC1C5413A400C340CF /* Project object */;
@@ -101,7 +92,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4D4841E71C54EE76007DEF1B /* Axiomatic.framework in Embed Frameworks */,
 				4D4841D31C544D28007DEF1B /* GraphView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -140,7 +130,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D4841E61C54EE76007DEF1B /* Axiomatic.framework in Frameworks */,
 				4D4841D21C544D28007DEF1B /* GraphView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,7 +247,6 @@
 			);
 			dependencies = (
 				4D4841D51C544D28007DEF1B /* PBXTargetDependency */,
-				4D4841E91C54EE76007DEF1B /* PBXTargetDependency */,
 			);
 			name = Logical;
 			productName = Logical;
@@ -313,7 +301,7 @@
 				TargetAttributes = {
 					F7C962B31C5413A500C340CF = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = PLYLXBYCEQ;
+						DevelopmentTeam = K2P452F89V;
 					};
 					F7C962C91C5413A500C340CF = {
 						CreatedOnToolsVersion = 7.2;
@@ -463,11 +451,6 @@
 			isa = PBXTargetDependency;
 			name = GraphView;
 			targetProxy = 4D4841D41C544D28007DEF1B /* PBXContainerItemProxy */;
-		};
-		4D4841E91C54EE76007DEF1B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Axiomatic;
-			targetProxy = 4D4841E81C54EE76007DEF1B /* PBXContainerItemProxy */;
 		};
 		F7C962CC1C5413A500C340CF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
