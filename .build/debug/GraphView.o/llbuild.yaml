@@ -1,0 +1,29 @@
+client:
+  name: swift-build
+
+tools: {}
+
+targets:
+  "": [<GraphView>]
+  GraphView: [<GraphView>]
+
+commands:
+  <GraphView-swiftc>:
+    tool: swift-compiler
+    executable: "/Library/Developer/Toolchains/swift-2.2-SNAPSHOT-2015-12-22-a.xctoolchain/usr/bin/swiftc"
+    inputs: ["/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/EdgeBacking.swift","/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/Graph.swift","/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/GraphView.swift","/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/RoundedView.swift"]
+    outputs: ["<GraphView-swiftc>","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.swiftmodule","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/EdgeBacking.swift.o","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/Graph.swift.o","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/GraphView.swift.o","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/RoundedView.swift.o"]
+    module-name: "GraphView"
+    module-output-path: "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.swiftmodule"
+    is-library: true
+    sources: ["/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/EdgeBacking.swift","/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/Graph.swift","/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/GraphView.swift","/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/RoundedView.swift"]
+    objects: ["/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/EdgeBacking.swift.o","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/Graph.swift.o","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/GraphView.swift.o","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/RoundedView.swift.o"]
+    import-paths: ["/Users/jadengeller/Documents/Packages/Logical/.build/debug"]
+    temps-path: "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView"
+    other-args: ["-j8","-Onone","-g","-target","x86_64-apple-macosx10.10","-enable-testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk","-I","/usr/local/include"]
+  <GraphView>:
+    tool: shell
+    inputs: ["<GraphView-swiftc>","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/EdgeBacking.swift.o","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/Graph.swift.o","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/GraphView.swift.o","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/RoundedView.swift.o"]
+    outputs: ["<GraphView>","/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.a"]
+    args: ["/bin/sh","-c","rm -f '/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.a'; ar cr '/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.a' '/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/EdgeBacking.swift.o' '/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/Graph.swift.o' '/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/GraphView.swift.o' '/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/RoundedView.swift.o'"]
+    description: "Linking Library:  .build/debug/GraphView.a"

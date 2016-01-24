@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1ECBD82B1C7923BED3E1D996501C72C1CCD4FC05",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1ECBD82B1C7923BED3E1D996501C72C1CCD4FC05" : 0,
+    "7755BFF332339A865133AE83968C27BA92610DBB" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D0D861C4-A778-4370-B7E1-1945D0880AAA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1ECBD82B1C7923BED3E1D996501C72C1CCD4FC05" : "Logical\/",
+    "7755BFF332339A865133AE83968C27BA92610DBB" : "Logical\/Submodules\/GraphView\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Logical",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Logical\/Logical.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/harrisonw1\/Logical.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1ECBD82B1C7923BED3E1D996501C72C1CCD4FC05"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/JadenGeller\/GraphView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7755BFF332339A865133AE83968C27BA92610DBB"
+    }
+  ]
+}

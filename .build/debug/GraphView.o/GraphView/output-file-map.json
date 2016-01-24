@@ -1,0 +1,29 @@
+{
+  "": {
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/master.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/EdgeBacking.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/EdgeBacking.d",
+    "object": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/EdgeBacking.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/EdgeBacking~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/EdgeBacking.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/Graph.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/Graph.d",
+    "object": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/Graph.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/Graph~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/Graph.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/GraphView.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/GraphView.d",
+    "object": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/GraphView.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/GraphView~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/GraphView.swiftdeps"
+  },
+  "/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/RoundedView.swift": {
+    "dependencies": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/RoundedView.d",
+    "object": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/Sources/RoundedView.swift.o",
+    "swiftmodule": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/RoundedView~partial.swiftmodule",
+    "swift-dependencies": "/Users/jadengeller/Documents/Packages/Logical/.build/debug/GraphView.o/GraphView/RoundedView.swiftdeps"
+  }
+}

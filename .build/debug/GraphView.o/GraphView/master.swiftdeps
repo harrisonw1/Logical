@@ -1,0 +1,8 @@
+version: "Apple Swift version 2.2-dev (LLVM 3ebdbb2c7e, Clang f66c5bb67b, Swift 17fe37d715)"
+options: "6200a451fcbad82daaaf7f04b059e611"
+build_time: [506908749, 234712000]
+inputs:
+  "/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/EdgeBacking.swift": !dirty [506908748, 0]
+  "/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/Graph.swift": !dirty [506908748, 0]
+  "/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/GraphView.swift": !dirty [506908748, 0]
+  "/Users/jadengeller/Documents/Packages/Logical/Packages/GraphView-1.0.0/Sources/RoundedView.swift": !dirty [506908748, 0]

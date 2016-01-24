@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D4841D21C544D28007DEF1B /* GraphView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841CD1C544D20007DEF1B /* GraphView.framework */; };
+		4D4841D31C544D28007DEF1B /* GraphView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841CD1C544D20007DEF1B /* GraphView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F7C962B81C5413A500C340CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C962B71C5413A500C340CF /* AppDelegate.swift */; };
 		F7C962BA1C5413A500C340CF /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C962B91C5413A500C340CF /* MasterViewController.swift */; };
 		F7C962BC1C5413A500C340CF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C962BB1C5413A500C340CF /* DetailViewController.swift */; };
@@ -18,6 +20,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4D4841CC1C544D20007DEF1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4D4841251C541028007DEF1B;
+			remoteInfo = GraphView;
+		};
+		4D4841CE1C544D20007DEF1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4D48412F1C541028007DEF1B;
+			remoteInfo = GraphViewTests;
+		};
+		4D4841D01C544D20007DEF1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4D4841A71C544057007DEF1B;
+			remoteInfo = GraphViewExample;
+		};
+		4D4841D41C544D28007DEF1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D4841241C541028007DEF1B;
+			remoteInfo = GraphView;
+		};
 		F7C962CB1C5413A500C340CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F7C962AC1C5413A400C340CF /* Project object */;
@@ -34,7 +64,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4D4841D61C544D28007DEF1B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4D4841D31C544D28007DEF1B /* GraphView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GraphView.xcodeproj; path = ../Submodules/GraphView/GraphView/GraphView.xcodeproj; sourceTree = "<group>"; };
 		F7C962B41C5413A500C340CF /* Logical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C962B71C5413A500C340CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C962B91C5413A500C340CF /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D4841D21C544D28007DEF1B /* GraphView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,9 +122,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D4841C71C544D20007DEF1B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D4841CD1C544D20007DEF1B /* GraphView.framework */,
+				4D4841CF1C544D20007DEF1B /* GraphViewTests.xctest */,
+				4D4841D11C544D20007DEF1B /* GraphViewExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F7C962AB1C5413A400C340CF = {
 			isa = PBXGroup;
 			children = (
+				4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */,
 				F7C962B61C5413A500C340CF /* Logical */,
 				F7C962CD1C5413A500C340CF /* LogicalTests */,
 				F7C962D81C5413A500C340CF /* LogicalUITests */,
@@ -138,10 +195,12 @@
 				F7C962B01C5413A500C340CF /* Sources */,
 				F7C962B11C5413A500C340CF /* Frameworks */,
 				F7C962B21C5413A500C340CF /* Resources */,
+				4D4841D61C544D28007DEF1B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4D4841D51C544D28007DEF1B /* PBXTargetDependency */,
 			);
 			name = Logical;
 			productName = Logical;
@@ -221,6 +280,12 @@
 			mainGroup = F7C962AB1C5413A400C340CF;
 			productRefGroup = F7C962B51C5413A500C340CF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4D4841C71C544D20007DEF1B /* Products */;
+					ProjectRef = 4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F7C962B31C5413A500C340CF /* Logical */,
@@ -229,6 +294,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4D4841CD1C544D20007DEF1B /* GraphView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GraphView.framework;
+			remoteRef = 4D4841CC1C544D20007DEF1B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4D4841CF1C544D20007DEF1B /* GraphViewTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GraphViewTests.xctest;
+			remoteRef = 4D4841CE1C544D20007DEF1B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4D4841D11C544D20007DEF1B /* GraphViewExample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = GraphViewExample.app;
+			remoteRef = 4D4841D01C544D20007DEF1B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F7C962B21C5413A500C340CF /* Resources */ = {
@@ -287,6 +376,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4D4841D51C544D28007DEF1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GraphView;
+			targetProxy = 4D4841D41C544D28007DEF1B /* PBXContainerItemProxy */;
+		};
 		F7C962CC1C5413A500C340CF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F7C962B31C5413A500C340CF /* Logical */;
@@ -406,6 +500,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Logical/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ethansinjin.Logical;
@@ -418,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Logical/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ethansinjin.Logical;
@@ -493,6 +589,7 @@
 				F7C962E01C5413A500C340CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F7C962E11C5413A500C340CF /* Build configuration list for PBXNativeTarget "LogicalTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +598,7 @@
 				F7C962E31C5413A500C340CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F7C962E41C5413A500C340CF /* Build configuration list for PBXNativeTarget "LogicalUITests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +607,7 @@
 				F7C962E61C5413A500C340CF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
