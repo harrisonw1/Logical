@@ -1,0 +1,3 @@
+[submodule "Submodules/GraphView"]
+	path = Submodules/GraphView
+	url = https://github.com/JadenGeller/GraphView.git
