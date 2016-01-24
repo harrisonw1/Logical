@@ -70,12 +70,16 @@ class DetailViewController: UIViewController {
         gray.frame.size = size
         
         self.graphView = GraphView(graph: Graph(nodes: [red, blue ,green ,yellow ,purple ,brown ,orange ,gray], edges: [(red,blue), (blue, green), (green, yellow), (purple, brown), (brown, red), (red, orange), (orange, gray), (yellow, gray)]))
-        
+       // self.graphView.graph.addNode("Hello")
+        //self.view.backgroundColor = UIColor.darkTextColor()
         self.graphView.frame = self.view.frame
-        self.view.backgroundColor = UIColor.darkTextColor()
         self.view.addSubview(self.graphView)
+        self.graphView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor)
+        self.graphView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor)
+        self.graphView.topAnchor.constraintEqualToAnchor(view.topAnchor)
+        self.graphView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor)
+
         
-        self.graphView.graph
         // Do any additional setup after loading the view, typically from a nib.
         //self.configureView()
     }
