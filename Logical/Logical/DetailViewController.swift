@@ -26,11 +26,11 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
-            }
-        }
+//        if let detail = self.detailItem {
+//            if let label = self.detailDescriptionLabel {
+//                label.text = detail.description
+//            }
+//        }
     }
 
     override func viewDidLoad() {
@@ -75,8 +75,9 @@ class DetailViewController: UIViewController {
         self.view.backgroundColor = UIColor.darkTextColor()
         self.view.addSubview(self.graphView)
         
+        self.graphView.graph
         // Do any additional setup after loading the view, typically from a nib.
-        self.configureView()
+        //self.configureView()
     }
 
     override func didReceiveMemoryWarning() {
