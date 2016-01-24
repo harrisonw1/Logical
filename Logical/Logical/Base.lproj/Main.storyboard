@@ -28,13 +28,28 @@
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3nv-Ei-Zap">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJ7-GC-D33" customClass="CanvasView" customModule="Logical" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="QJ7-GC-D33" secondAttribute="bottom" id="LAf-BY-ZQy"/>
+                            <constraint firstItem="QJ7-GC-D33" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" id="NyB-Q2-rdN"/>
+                            <constraint firstAttribute="trailing" secondItem="QJ7-GC-D33" secondAttribute="trailing" id="vLT-9F-dpD"/>
+                            <constraint firstItem="QJ7-GC-D33" firstAttribute="leading" secondItem="3nv-Ei-Zap" secondAttribute="leading" id="xHG-23-6EQ"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
+                    <connections>
+                        <outlet property="canView" destination="QJ7-GC-D33" id="sa1-vD-0uT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
