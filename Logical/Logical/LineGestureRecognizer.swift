@@ -10,7 +10,7 @@ import UIKit
 
 class LineGestureRecognizer: UIGestureRecognizer {
 
-    private var touchedPoints = [CGPoint]() // point history
+    var touchedPoints = [CGPoint]() // point history
     var path = CGPathCreateMutable() // running CGPath - helps with drawing
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent) {

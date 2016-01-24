@@ -78,7 +78,7 @@ class DetailViewController: UIViewController {
         gray.backgroundColor = .grayColor()
         gray.frame.size = size
         
-        self.graphView = GraphView(graph: Graph(nodes: [red, blue ,green ,yellow ,purple ,brown ,orange ,gray], edges: [(red,blue), (blue, green), (green, yellow), (purple, brown), (brown, red), (red, orange), (orange, gray), (yellow, gray)]))
+        self.graphView = GraphView(graph: Graph(nodes: [red, blue ,green ,yellow ,purple ,brown ,orange ,gray], undirectedEdges: [(red,blue), (blue, green), (green, yellow), (purple, brown), (brown, red), (red, orange), (orange, gray), (yellow, gray)]))
         // self.graphView.graph.addNode("Hello")
         //self.view.backgroundColor = UIColor.darkTextColor()
         self.graphView.frame = self.view.frame
@@ -286,10 +286,39 @@ class DetailViewController: UIViewController {
     }
     
     func line(l: LineGestureRecognizer) {
+        
+        var firstNode:UIView?
+        var lastNode:UIView?
+        let localFirst = l.touchedPoints.first!
+        let localLast = l.touchedPoints.last!
         if l.state == .Ended {
+
             //try to find nodes under the start and end points on the line
             for node in self.graphView.graph.nodes {
-            
+
+                //let firstPoint = self.graphView.convertPoint(localFirst, fiew: nil)
+                print(localFirst)
+               // let isPointInsideView = CGRectContainsPoint(node.frame, localFirst)
+                //print(self.graphView.hitTest(localFirst, withEvent: nil))
+                
+                
+                if self.graphView.hitTest(self.graphView.convertPoint(localFirst, fromView: self.view), withEvent: nil) == node {
+                    firstNode = node
+                    break
+                }
+            }
+            if firstNode != nil {
+                for node in self.graphView.graph.nodes {
+
+                    if self.graphView.hitTest(self.graphView.convertPoint(localLast, fromView: self.view), withEvent: nil) == node {
+                        lastNode = node
+                        break
+                    }
+                }
+            }
+            if (lastNode != nil) && (firstNode != nil) && (lastNode != firstNode) {
+                //create an edge
+                self.graphView.graph.addDirectedEdge(from: firstNode!, to: lastNode!)
             }
         }
     }
