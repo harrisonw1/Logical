@@ -102,7 +102,6 @@ class DetailViewController: UIViewController {
         //the circle gesture recognizer
         self.circleGestureRecognizer = CircleGestureRecognizer(target: self, action: "circled:")
         self.circleGestureRecognizer!.delegate = self
-        self.circleGestureRecognizer!.circleDelegate = self
         self.view.addGestureRecognizer(circleGestureRecognizer!)
         
         self.pencilGestureRecognizer.delegate = self
@@ -261,7 +260,6 @@ class DetailViewController: UIViewController {
         if c.state == .Ended {
             //findCircledView(c.fitResult.center)
             if c.isCircle == true {
-                print("YAY")
             }
         }
         if c.state == .Began {
@@ -272,8 +270,31 @@ class DetailViewController: UIViewController {
             //circlerDrawer.updatePath(c.path)
         }
         if c.state == .Ended || c.state == .Failed || c.state == .Cancelled {
+            if c.isCircle {
+                self.createNewNode(c.fitResult)
+            }
+            if c.isCircle == false{
             self.canvasView.clear()
+            }
         }
+    }
+    
+    func createNewNode(fit:CircleResult){
+        let newView = RoundedView()
+        //no size yet
+        newView.frame.size = CGSize(width: 40, height: 40)
+        newView.alpha = 0.0
+        newView.frame.origin.x = fit.center.x - fit.radius
+        newView.frame.origin.y = fit.center.y - fit.radius
+        newView.backgroundColor = UIColor.purpleColor()
+        self.graphView.graph.addNode(newView)
+        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.05, initialSpringVelocity: 0.1, options: [], animations: {
+            newView.frame.size = CGSize(width: 80, height: 80)
+            newView.alpha = 1.0
+            }, completion: {
+                success in
+                print("YAY")
+        })
     }
     
 }
@@ -296,15 +317,16 @@ extension DetailViewController: UIGestureRecognizerDelegate {
     }
 }
 
-extension DetailViewController: CircleGestureRecognizerDelegate {
-    func circleDetected() {
-        self.canvasView.clear()
-    }
-    
-    func lineDetected() {
-        self.canvasView.clear()
-    }
-}
+//extension DetailViewController: CircleGestureRecognizerDelegate {
+//    func circleDetected(fit:CircleResult) {
+//        
+//        self.canvasView.clear()
+//    }
+//    
+//    func lineDetected() {
+//        self.canvasView.clear()
+//    }
+//}
 
 extension DetailViewController: PencilGestureRecognizerDelegate {
     func drawTouches(touches: Set<UITouch>, withEvent event: UIEvent?) {

@@ -23,11 +23,6 @@
 import UIKit
 import UIKit.UIGestureRecognizerSubclass
 
-protocol CircleGestureRecognizerDelegate: class {
-    func circleDetected()
-    func lineDetected()
-}
-
 class CircleGestureRecognizer: UIGestureRecognizer {
 
   private var touchedPoints = [CGPoint]() // point history
@@ -35,9 +30,6 @@ class CircleGestureRecognizer: UIGestureRecognizer {
   var tolerance: CGFloat = 0.2 // circle wiggle room
   var isCircle = false
   var path = CGPathCreateMutable() // running CGPath - helps with drawing
-  
-    
-  weak var circleDelegate:CircleGestureRecognizerDelegate?
 
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent) {
     super.touchesBegan(touches, withEvent: event)
