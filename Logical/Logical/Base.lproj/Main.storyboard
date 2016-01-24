@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D9c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -34,22 +35,50 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QJ7-GC-D33" customClass="CanvasView" customModule="Logical" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.51857585139318885" colorSpace="calibratedWhite"/>
                             </view>
+                            <containerView opaque="NO" tag="12" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e85-Ed-pBt">
+                                <rect key="frame" x="331" y="0.0" width="269" height="372"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="372" id="4et-3c-OUs"/>
+                                    <constraint firstAttribute="height" constant="372" id="6dv-6s-cNT"/>
+                                    <constraint firstAttribute="width" constant="269" id="FKL-zL-Yo3"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="269" id="HS6-if-Dm8"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="rtP-at-1jM" kind="embed" identifier="colorPicker" id="3d0-oW-PBr"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="e85-Ed-pBt" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" id="9pB-jg-7U2"/>
                             <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="QJ7-GC-D33" secondAttribute="bottom" id="LAf-BY-ZQy"/>
                             <constraint firstItem="QJ7-GC-D33" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" id="NyB-Q2-rdN"/>
+                            <constraint firstAttribute="trailing" secondItem="e85-Ed-pBt" secondAttribute="trailing" id="pLL-lJ-00K"/>
                             <constraint firstAttribute="trailing" secondItem="QJ7-GC-D33" secondAttribute="trailing" id="vLT-9F-dpD"/>
                             <constraint firstItem="QJ7-GC-D33" firstAttribute="leading" secondItem="3nv-Ei-Zap" secondAttribute="leading" id="xHG-23-6EQ"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" title="Logical" id="mOI-FS-AaM">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" systemItem="add" id="kEt-1g-6LN">
+                                <connections>
+                                    <action selector="addBasicNode:" destination="JEX-9P-axG" id="o9Z-As-Isx"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Color" id="lpx-hz-Cmv">
+                                <connections>
+                                    <action selector="showColorPopover:" destination="JEX-9P-axG" id="uqb-WL-FaF"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="canView" destination="QJ7-GC-D33" id="sa1-vD-0uT"/>
+                        <outlet property="colorButton" destination="lpx-hz-Cmv" id="srg-7F-h6Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
@@ -128,6 +157,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLD-UC-DBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
+        </scene>
+        <!--Swift Color Picker View Controller-->
+        <scene sceneID="YxF-nP-xrM">
+            <objects>
+                <viewController id="rtP-at-1jM" customClass="SwiftColorPickerViewController" customModule="Logical" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FB5-GO-8fo">
+                        <rect key="frame" x="0.0" y="0.0" width="269" height="372"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PZr-GU-Pyl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1304.5" y="116"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

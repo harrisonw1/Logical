@@ -15,11 +15,15 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     var graphView: GraphView!
+    var currentColor = UIColor.purpleColor()
+    var colorPickerVC: SwiftColorPickerViewController!
+    var oldColorRect: CGRect!
     @IBOutlet weak var canView: CanvasView!
     var canvasView: CanvasView {
         return canView as CanvasView
     }
     
+    @IBOutlet weak var colorButton: UIBarButtonItem!
     let size = CGSize(width: 80, height: 80)
     var circleGestureRecognizer:CircleGestureRecognizer?
     var lineGestureRecognizer:LineGestureRecognizer?
@@ -113,9 +117,17 @@ class DetailViewController: UIViewController {
         self.pencilGestureRecognizer.delegate = self
         self.pencilGestureRecognizer.pencilDelegate = self
         self.view.addGestureRecognizer(pencilGestureRecognizer)
-        
+
         // Do any additional setup after loading the view, typically from a nib.
         //self.configureView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        let colorPicker = self.view.viewWithTag(12)!
+        self.view.bringSubviewToFront(colorPicker)
+        oldColorRect = colorPicker.frame
+        colorPicker.alpha = 0;
+        colorPicker.frame = CGRectMake(colorPicker.frame.origin.x, colorPicker.frame.origin.y - 400, colorPicker.frame.size.width, colorPicker.frame.size.height);
     }
     
     override func didReceiveMemoryWarning() {
@@ -204,6 +216,12 @@ class DetailViewController: UIViewController {
 //        }
 //        super.touchesCancelled(touches, withEvent: event)
 //    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "colorPicker") {
+            colorPickerVC = segue.destinationViewController as! SwiftColorPickerViewController
+            colorPickerVC.delegate = self
+        }
+    }
     
     override func touchesEstimatedPropertiesUpdated(touches: Set<NSObject>) {
         canvasView.updateEstimatedPropertiesForTouches(touches)
@@ -323,6 +341,39 @@ class DetailViewController: UIViewController {
         }
     }
     
+    @IBAction func showColorPopover(sender: AnyObject) {
+        if (self.view.viewWithTag(12)!.alpha == 0) {
+            UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .CurveEaseOut, animations: { () -> Void in
+                self.view.viewWithTag(12)!.alpha = 1;
+                self.view.viewWithTag(12)!.frame = self.oldColorRect;
+                }) { (Bool) -> Void in
+                    print("complete")
+            }
+        } else {
+            UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .CurveEaseOut, animations: { () -> Void in
+                self.view.viewWithTag(12)!.alpha = 0;
+                self.view.viewWithTag(12)!.frame = CGRectMake(self.view.viewWithTag(12)!.frame.origin.x, self.view.viewWithTag(12)!.frame.origin.y - 400, self.view.viewWithTag(12)!.frame.size.width, self.view.viewWithTag(12)!.frame.size.height);
+
+                }) { (Bool) -> Void in
+                    print("complete")
+            }
+        }
+    }
+    
+    @IBAction func addBasicNode(sender: AnyObject) {
+        let newView = RoundedView()
+        let coord = CGPointMake(self.view.center.x, -80)
+        //no size yet
+        newView.frame.size = CGSize(width: 80, height: 80)
+        newView.alpha = 1.0
+        newView.frame.origin.x = coord.x
+        newView.frame.origin.y = coord.y
+        newView.backgroundColor = currentColor
+        
+        self.graphView.graph.addNode(newView)
+    }
+    
+    
     func createNewNode(fit:CircleResult){
         let newView = RoundedView()
         let coord = self.canvasView.convertPoint(CGPointMake((fit.center.x - fit.radius), (fit.center.y - fit.radius)), fromView: newView)
@@ -331,7 +382,7 @@ class DetailViewController: UIViewController {
         newView.alpha = 1.0
         newView.frame.origin.x = coord.x
         newView.frame.origin.y = coord.y
-        newView.backgroundColor = UIColor.purpleColor()
+        newView.backgroundColor = currentColor
         self.graphView.graph.addNode(newView)
         
         self.canvasView.clear()
@@ -388,6 +439,12 @@ extension DetailViewController: UIGestureRecognizerDelegate {
 //        self.canvasView.clear()
 //    }
 //}
+extension DetailViewController : SwiftColorPickerDelegate {
+    func colorSelectionChanged(selectedColor color: UIColor) {
+        currentColor = color;
+        colorButton.tintColor = currentColor
+    }
+}
 
 extension DetailViewController: PencilGestureRecognizerDelegate {
     func drawTouches(touches: Set<UITouch>, withEvent event: UIEvent?) {

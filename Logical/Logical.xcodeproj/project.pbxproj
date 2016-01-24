@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4D4841D21C544D28007DEF1B /* GraphView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841CD1C544D20007DEF1B /* GraphView.framework */; };
 		4D4841D31C544D28007DEF1B /* GraphView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841CD1C544D20007DEF1B /* GraphView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D4841E61C54EE76007DEF1B /* Axiomatic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841E11C54EE70007DEF1B /* Axiomatic.framework */; };
+		4D4841E71C54EE76007DEF1B /* Axiomatic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841E11C54EE70007DEF1B /* Axiomatic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B12F73C01C54FCE700534186 /* SwiftColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12F73BF1C54FCE700534186 /* SwiftColorPickerViewController.swift */; };
 		F77F6C6F1C54A8D9000C4124 /* CircleGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F6C6E1C54A8D9000C4124 /* CircleGestureRecognizer.swift */; };
 		F77F6C711C54A8FD000C4124 /* CircleFit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F6C701C54A8FD000C4124 /* CircleFit.swift */; };
 		F77F6C731C54AF6F000C4124 /* PencilGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F6C721C54AF6F000C4124 /* PencilGestureRecognizer.swift */; };
@@ -102,6 +105,7 @@
 /* Begin PBXFileReference section */
 		4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GraphView.xcodeproj; path = ../Submodules/GraphView/GraphView/GraphView.xcodeproj; sourceTree = "<group>"; };
 		4D4841DA1C54EE6F007DEF1B /* Axiomatic.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Axiomatic.xcodeproj; path = "../Packages/Axiomatic-1.0.3/Axiomatic/Axiomatic.xcodeproj"; sourceTree = "<group>"; };
+		B12F73BF1C54FCE700534186 /* SwiftColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftColorPickerViewController.swift; sourceTree = "<group>"; };
 		F77F6C6E1C54A8D9000C4124 /* CircleGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleGestureRecognizer.swift; sourceTree = "<group>"; };
 		F77F6C701C54A8FD000C4124 /* CircleFit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleFit.swift; sourceTree = "<group>"; };
 		F77F6C721C54AF6F000C4124 /* PencilGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PencilGestureRecognizer.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 		F7C962B61C5413A500C340CF /* Logical */ = {
 			isa = PBXGroup;
 			children = (
+				B12F73BF1C54FCE700534186 /* SwiftColorPickerViewController.swift */,
 				F77F6C701C54A8FD000C4124 /* CircleFit.swift */,
 				F77F6C741C54DCD3000C4124 /* LineGestureRecognizer.swift */,
 				F77F6C6E1C54A8D9000C4124 /* CircleGestureRecognizer.swift */,
@@ -416,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7C962BC1C5413A500C340CF /* DetailViewController.swift in Sources */,
+				B12F73C01C54FCE700534186 /* SwiftColorPickerViewController.swift in Sources */,
 				F7B606561C546D75004CC069 /* ReticleView.swift in Sources */,
 				F7C962BA1C5413A500C340CF /* MasterViewController.swift in Sources */,
 				F77F6C751C54DCD3000C4124 /* LineGestureRecognizer.swift in Sources */,
