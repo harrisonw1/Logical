@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4D4841D21C544D28007DEF1B /* GraphView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841CD1C544D20007DEF1B /* GraphView.framework */; };
 		4D4841D31C544D28007DEF1B /* GraphView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841CD1C544D20007DEF1B /* GraphView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D4841E61C54EE76007DEF1B /* Axiomatic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841E11C54EE70007DEF1B /* Axiomatic.framework */; };
+		4D4841E71C54EE76007DEF1B /* Axiomatic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4D4841E11C54EE70007DEF1B /* Axiomatic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F7C962B81C5413A500C340CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C962B71C5413A500C340CF /* AppDelegate.swift */; };
 		F7C962BA1C5413A500C340CF /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C962B91C5413A500C340CF /* MasterViewController.swift */; };
 		F7C962BC1C5413A500C340CF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C962BB1C5413A500C340CF /* DetailViewController.swift */; };
@@ -48,6 +50,27 @@
 			remoteGlobalIDString = 4D4841241C541028007DEF1B;
 			remoteInfo = GraphView;
 		};
+		4D4841E01C54EE70007DEF1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D4841DA1C54EE6F007DEF1B /* Axiomatic.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DC710461C4D061D00834A0E;
+			remoteInfo = Axiomatic;
+		};
+		4D4841E21C54EE70007DEF1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D4841DA1C54EE6F007DEF1B /* Axiomatic.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DC710501C4D061D00834A0E;
+			remoteInfo = AxiomaticTests;
+		};
+		4D4841E81C54EE76007DEF1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D4841DA1C54EE6F007DEF1B /* Axiomatic.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DC710451C4D061D00834A0E;
+			remoteInfo = Axiomatic;
+		};
 		F7C962CB1C5413A500C340CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F7C962AC1C5413A400C340CF /* Project object */;
@@ -71,6 +94,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4D4841E71C54EE76007DEF1B /* Axiomatic.framework in Embed Frameworks */,
 				4D4841D31C544D28007DEF1B /* GraphView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -80,6 +104,7 @@
 
 /* Begin PBXFileReference section */
 		4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GraphView.xcodeproj; path = ../Submodules/GraphView/GraphView/GraphView.xcodeproj; sourceTree = "<group>"; };
+		4D4841DA1C54EE6F007DEF1B /* Axiomatic.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Axiomatic.xcodeproj; path = "../Packages/Axiomatic-1.0.3/Axiomatic/Axiomatic.xcodeproj"; sourceTree = "<group>"; };
 		F7C962B41C5413A500C340CF /* Logical.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logical.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7C962B71C5413A500C340CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7C962B91C5413A500C340CF /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D4841E61C54EE76007DEF1B /* Axiomatic.framework in Frameworks */,
 				4D4841D21C544D28007DEF1B /* GraphView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,9 +158,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4D4841DB1C54EE6F007DEF1B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D4841E11C54EE70007DEF1B /* Axiomatic.framework */,
+				4D4841E31C54EE70007DEF1B /* AxiomaticTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F7C962AB1C5413A400C340CF = {
 			isa = PBXGroup;
 			children = (
+				4D4841DA1C54EE6F007DEF1B /* Axiomatic.xcodeproj */,
 				4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */,
 				F7C962B61C5413A500C340CF /* Logical */,
 				F7C962CD1C5413A500C340CF /* LogicalTests */,
@@ -201,6 +237,7 @@
 			);
 			dependencies = (
 				4D4841D51C544D28007DEF1B /* PBXTargetDependency */,
+				4D4841E91C54EE76007DEF1B /* PBXTargetDependency */,
 			);
 			name = Logical;
 			productName = Logical;
@@ -255,7 +292,7 @@
 				TargetAttributes = {
 					F7C962B31C5413A500C340CF = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = K2P452F89V;
+						DevelopmentTeam = PLYLXBYCEQ;
 					};
 					F7C962C91C5413A500C340CF = {
 						CreatedOnToolsVersion = 7.2;
@@ -281,6 +318,10 @@
 			productRefGroup = F7C962B51C5413A500C340CF /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 4D4841DB1C54EE6F007DEF1B /* Products */;
+					ProjectRef = 4D4841DA1C54EE6F007DEF1B /* Axiomatic.xcodeproj */;
+				},
 				{
 					ProductGroup = 4D4841C71C544D20007DEF1B /* Products */;
 					ProjectRef = 4D4841C61C544D20007DEF1B /* GraphView.xcodeproj */;
@@ -315,6 +356,20 @@
 			fileType = wrapper.application;
 			path = GraphViewExample.app;
 			remoteRef = 4D4841D01C544D20007DEF1B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4D4841E11C54EE70007DEF1B /* Axiomatic.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Axiomatic.framework;
+			remoteRef = 4D4841E01C54EE70007DEF1B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4D4841E31C54EE70007DEF1B /* AxiomaticTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AxiomaticTests.xctest;
+			remoteRef = 4D4841E21C54EE70007DEF1B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -380,6 +435,11 @@
 			isa = PBXTargetDependency;
 			name = GraphView;
 			targetProxy = 4D4841D41C544D28007DEF1B /* PBXContainerItemProxy */;
+		};
+		4D4841E91C54EE76007DEF1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Axiomatic;
+			targetProxy = 4D4841E81C54EE76007DEF1B /* PBXContainerItemProxy */;
 		};
 		F7C962CC1C5413A500C340CF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -500,11 +560,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Logical/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ethansinjin.Logical;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -513,11 +576,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Logical/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ethansinjin.Logical;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
