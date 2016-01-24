@@ -281,20 +281,29 @@ class DetailViewController: UIViewController {
     
     func createNewNode(fit:CircleResult){
         let newView = RoundedView()
+        let coord = self.canvasView.convertPoint(CGPointMake((fit.center.x - fit.radius), (fit.center.y - fit.radius)), fromView: newView)
         //no size yet
-        newView.frame.size = CGSize(width: 40, height: 40)
-        newView.alpha = 0.0
-        newView.frame.origin.x = fit.center.x - fit.radius
-        newView.frame.origin.y = fit.center.y - fit.radius
+        newView.frame.size = CGSize(width: 80, height: 80)
+        newView.alpha = 1.0
+        newView.frame.origin.x = coord.x
+        newView.frame.origin.y = coord.y
         newView.backgroundColor = UIColor.purpleColor()
         self.graphView.graph.addNode(newView)
-        UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.05, initialSpringVelocity: 0.1, options: [], animations: {
-            newView.frame.size = CGSize(width: 80, height: 80)
-            newView.alpha = 1.0
-            }, completion: {
-                success in
-                print("YAY")
-        })
+        
+        self.canvasView.clear()
+//        UIView.animateWithDuration(1.5, delay: 0, usingSpringWithDamping: 0.05, initialSpringVelocity: 0.1, options: [], animations: {
+//            newView.frame.size = CGSize(width: 80, height: 80)
+//            newView.alpha = 1.0
+//            }, completion: {
+//                success in
+//                print("YAY")
+//        })
+//        let duration:NSTimeInterval = 0.5;// match this to the value of the UIView animateWithDuration: call
+//        CATransaction.begin()
+//        CATransaction.setValue(NSNumber(float: Float(duration)), forKey: kCATransactionAnimationDuration)
+//        newView.layer.mask?.bounds = CGRectMake(0, 0, 80, 80)
+//        CATransaction.commit()
+        
     }
     
 }
