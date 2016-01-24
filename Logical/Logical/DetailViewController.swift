@@ -9,6 +9,7 @@
 import UIKit
 
 import GraphView
+import Axiomatic
 
 class DetailViewController: UIViewController {
     
